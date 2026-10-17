@@ -1,1 +1,0 @@
-const people = require('./02.js');
