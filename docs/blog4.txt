@@ -1,5 +1,3 @@
-
-NEW CHUNK
 Node.js is a JavaScript runtime built on Chrome's V8 engine. It lets developers run JavaScript outside the browser, which makes it possible to build servers, command line tools, and automation scripts using a single language.
 
 Streams are one of the most powerful features in Node.js. Instead of loading an entire file into memory, a stream reads data in small pieces called chunks. This makes it possible to work with very large files without running out of memory.
