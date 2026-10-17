@@ -1,0 +1,15 @@
+Node.js is a JavaScript runtime built on Chrome's V8 engine. It lets developers run JavaScript outside the browser, which makes it possible to build servers, command line tools, and automation scripts using a single language.
+
+Streams are one of the most powerful features in Node.js. Instead of loading an entire file into memory, a stream reads data in small pieces called chunks. This makes it possible to work with very large files without running out of memory.
+
+A buffer is a temporary storage area for raw binary data. When a stream reads a file, each chunk arrives as a buffer. You can convert a buffer into readable text by calling the toString method, or by setting the encoding to utf8 when you create the stream.
+
+There are four main types of streams in Node.js: readable streams, writable streams, duplex streams, and transform streams. Readable streams produce data, writable streams consume data, duplex streams do both, and transform streams modify data as it passes through.
+
+The pipe method connects a readable stream to a writable stream. It handles the flow of data automatically, including backpressure, which prevents a fast reader from overwhelming a slow writer. This is why piping is the preferred way to copy files in Node.js.
+
+The fs module provides createReadStream and createWriteStream for working with files. Reading a ten gigabyte log file with readFile would crash your program, but a read stream handles it easily because only one small chunk lives in memory at a time.
+
+Events are at the heart of streams. A readable stream emits a data event whenever a new chunk is available, an end event when there is nothing left to read, and an error event if something goes wrong. Listening to these events gives you full control over the process.
+
+The default chunk size for file read streams is sixty four kilobytes. You can change this with the highWaterMark option, which is useful when you want to see multiple chunks arriving even from a small file.
