@@ -17,5 +17,6 @@
 //     clearInterval(interval);
 // }, 5000);
 
-console.log(__dirname);
-console.log(__filename);
+// console.log(__dirname);
+// console.log(__filename);
+
