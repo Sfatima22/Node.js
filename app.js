@@ -2,10 +2,11 @@ const express=require('express');
 
 const morgan=require('morgan');
 const mongoose = require('mongoose');
+const Blog = require('./models/blog');
 // express app
 const app= express();
 //connect to mongodb
-const dbURI = 'mongodb+srv://fatima12:fatima21@cluster0.8endqy2.mongodb.net/node-tut?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://fatima12:fatima12@cluster0.8endqy2.mongodb.net/node-tut?retryWrites=true&w=majority';
 mongoose.connect(dbURI)
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
@@ -14,12 +15,27 @@ mongoose.connect(dbURI)
 //register view engine
 app.set('view engine', 'ejs');
 
-app.listen(3000);
+
 
 //middleware static files
 app.use(express.static('public'));
 
 app.use(morgan('dev'));
+
+app.get('/add-blog', (req,res) => {
+   const blog = new Blog({
+    title: 'new blog',
+    snippet : 'about',
+    body : 'more'
+   });
+   blog.save()
+   .then((result) => {
+     res.send(result)
+   })
+   .catch((err) => {
+    console.log(err);
+   });
+})
 
 
 app.get('/', (req,res)=> {
