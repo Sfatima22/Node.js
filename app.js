@@ -7,12 +7,24 @@ const app= express();
 app.set('view engine', 'ejs');
 
 app.listen(3000);
+app.use((req,res, next) => {
+    console.log('new request made:');
+    console.log('host:', req.hostname);
+    console.log('path: ', req.path);
+    console.log('method: ', req.method);
+    next();
+});
+
+app.use((req,res, next) => {
+    console.log('in the next middleware');
+    next();
+});
 
 app.get('/', (req,res)=> {
     const blogs = [
-//   {title: 'Yoshi finds eggs', snippet: 'boil them and eat!!'},
-//   {title: 'Mario finds stars', snippet: 'keep staring at them'},
-//   {title: 'How to defeat bowser', snippet: 'ehhhh'},
+  {title: 'Yoshi finds eggs', snippet: 'boil them and eat!!'},
+  {title: 'Mario finds stars', snippet: 'keep staring at them'},
+  {title: 'How to defeat bowser', snippet: 'ehhhh'},
 ];
     
   //  res.send('<p> home page <p>');
