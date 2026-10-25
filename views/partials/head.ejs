@@ -1,0 +1,103 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heyyy |<%= title %></title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+body {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  font-family: 'Noto Serif', serif;
+}
+
+p, h1, h2, h3, a, ul {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #222;
+}
+
+/* nav & footer styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 40px;
+}
+nav .site-title h1 {
+  font-size: 28px;
+  color: #ff6347;
+}
+nav .site-title p {
+  font-size: 14px;
+  color: #777;
+}
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+nav li {
+  margin-left: 20px;
+}
+nav li a:hover {
+  color: #ff6347;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 60px;
+  border-top: 1px solid #eee;
+  color: #777;
+}
+
+/* blog list styles */
+.blogs h2 {
+  margin-bottom: 20px;
+}
+.blogs .single {
+  padding: 16px 20px;
+  margin: 20px 0;
+  background: #f5f5f5;
+  border-radius: 6px;
+}
+.blogs .single h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.blogs .single p {
+  color: #555;
+}
+
+/* about / 404 / create page text */
+.content p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+/* create blog form (used in later episodes) */
+form label {
+  display: block;
+  margin: 16px 0 6px;
+}
+form input,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+form button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background: #ff6347;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+  </style>
+</head>
