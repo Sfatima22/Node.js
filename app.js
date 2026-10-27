@@ -40,13 +40,14 @@ app.get('/about', (req,res)=> {
 
 //blog routes
 app.get('/blogs', (req,res)=> {
-  Blog.find()
+  Blog.find().sort({created: -1})
   .then((result)=>{
-
+    res.render('index', {title: 'all blogs', blogs: result
+    })
   })
-  .catch((err))=>{
+  .catch((err)=>{
     console.log(err);
-  }
+  })
 })
 //redirects
 app.get('/blogs/create',(req,res)=>{
