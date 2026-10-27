@@ -62,6 +62,27 @@ app.post('/blogs', (req,res) => {
 
    })
 })
+
+app.get('/blogs/:id', (req,res)=> {
+  const id= req.params.id;
+  Blog.findById(id)
+.then(result => {
+  res.render('details', {blog: result, title: 'Blod Detils'});
+
+})
+.catch(err => {
+  console.log(err)
+})
+})
+
+app.delete('/blogs/:id', (req,res) =>{
+  const id= req.params.id;
+  Blog.findByIdAndDelete(id)
+  .then(result => {
+    res.json({redirect: '/blogs'})
+  })
+  .catch(err => { console.log(err);})
+})
 //redirects
 app.get('/blogs/create',(req,res)=>{
     res.render('create',  {title: "create a new blog"});
